@@ -2,6 +2,7 @@
 
   'use strict';
   var context = null;
+  var contextReal;
   var width = null;
   var height = null;
   var addSnow = true;
@@ -14,8 +15,10 @@
     self = {};
 
     self.init = function(){
-      var canvas = document.getElementById(canvasId);
+      var canvasReal = document.getElementById(canvasId),
+          convas = document.createElement('canvas');
       context = canvas.getContext("2d");
+      contextReal = canvas.getContext("2d");
       draw();
       setTimeout(function(){
         canvas.classList.remove("loading");
@@ -37,11 +40,18 @@
       
       var t = tree(width/2, height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       t.draw();
+      render();
+    }
+
+    function render(){
+      contextReal.drawImage(canvas, 0, 0);
     }
 
     return self;
 
   }
+
+
 
 
 
