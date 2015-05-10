@@ -1,16 +1,45 @@
 /*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
-body {
+/*body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
+}*/
+
+body{
+	/*background: #ecf0f1;*/
+	/* Mozilla Firefox */ 
+
+	/*background-color: #ffffff;*/
+	background-repeat: no-repeat;
+	overflow: hidden;
+	min-height: 100%;
+	min-width: 100%;
+	background-image: -moz-linear-gradient(bottom, #FFFFFF 0%, #bdc3c7 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(bottom, #FFFFFF 0%, #bdc3c7 100%);
+
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(bottom, #FFFFFF 0%, #bdc3c7 100%);
+
+	/* W3C Markup, IE10 Release Preview */ 
+	background-image: linear-gradient(to top, #FFFFFF 0%, #bdc3c7 100%);
 }
-
-
 canvas {
 	display: block;
 	margin: 0 auto;
+	opacity: 1;
+	transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+	
 }
 
 .text-content{
 	position: absolute;
 	top: 2rem;
 	width: 100%;
+}
+
+.resizing{
+	opacity: 0;
 }
