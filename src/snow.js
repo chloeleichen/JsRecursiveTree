@@ -70,6 +70,7 @@ function constrainer(min, max) {
 
           self.stop = function(){
             window.cancelAnimFrame(animateStart);
+            clearInterval(flakeTimer);
             blank();
 
           }
@@ -112,9 +113,8 @@ function constrainer(min, max) {
           }
 
           function addFlake(){
-               //console.log(flakeArray);
                flakeArray[flakeArray.length] = new Flake();
-               if (flakeArray.length == maxFlakes){
+               if (flakeArray.length >= maxFlakes){
                     clearInterval(flakeTimer);
                }
           }
@@ -139,22 +139,22 @@ function constrainer(min, max) {
 (function(){
 
   var button = document.getElementById("snow-toggle");
+  var body = document.body;
   var s = snow();
   s.init();
 
   button.addEventListener("click", function(e){
-  console.log(this);
-  console.log(button.value);
 
     if(this.value == "stop-snow"){
-
       s.stop();
       this.value = "start-snow";
       this.innerHTML = "Start Snow";
+      body.classList.add("sunny");
     } else {
       s.start();
       this.value = "stop-snow";
       this.innerHTML = "Stop Snow";
+      body.classList.remove("sunny");
     }
   })
 
