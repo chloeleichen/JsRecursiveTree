@@ -1,29 +1,3 @@
-window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       || 
-  window.webkitRequestAnimationFrame || 
-  window.mozRequestAnimationFrame    || 
-  window.oRequestAnimationFrame      || 
-  window.msRequestAnimationFrame     || 
-  function(/* function */ callback, /* DOMElement */ element){
-    window.setTimeout(callback, 1000 / 60);
-  };
-})();
-
-function randomSign(num){
-  if (Math.random() < 0.5) {
-    return -num;
-  } else{
-    return num;
-  } 
-}
-
-function constrainer(min, max) {
-  return function(n) {
-    return Math.max(min, Math.min(n, max));
-  };
-}
-
-
 (function(){
 
   'use strict';
@@ -33,6 +7,7 @@ function constrainer(min, max) {
   var addSnow = true;
   var maxSnowTheta = Math.PI*1/3;
   var timer;
+  //var nTrees = 1;
 
 
   var forest = function(canvasId){
@@ -41,29 +16,26 @@ function constrainer(min, max) {
     self.init = function(){
       var canvas = document.getElementById(canvasId);
       context = canvas.getContext("2d");
-      draw();  
-      window.addEventListener("resize", function(){
-        canvas.classList.add("resizing");
-        timer && clearTimeout(timer);
-        timer = setTimeout(reDraw, 300)         
-      });
+      draw();
+      setTimeout(function(){
+        canvas.classList.remove("loading");
+      }, 300);
     }
-
-  function reDraw(){
-          context.clearRect(0,0, width, height);
-          draw();
-          canvas.classList.remove("resizing");
-        }
 
     function draw(){
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;   
       width = canvas.width;
       height = canvas.height;
-      // context.fillStyle = "#bdc3c7";
-      // context.fillRect(0, 0, width, height);
+      var ts = [];
       var cWidth = width < 500? width/2: 500;
-      var t = tree(width/2, height, -(Math.PI/2), 10, cWidth);
+      // for (var i = 0; i < nTrees; i ++){
+      //   ts[i] = tree((i+1)*width/(nTrees+1), height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
+      //   ts[i].draw();
+      // }
+      var cWidth = width < 500? width/2: 500;
+      
+      var t = tree(width/2, height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       t.draw();
     }
 
@@ -72,15 +44,17 @@ function constrainer(min, max) {
   }
 
 
-  var tree = function(x1I, y1I, thetaI, branchWidth0I, totalBranchLengthI){
+
+
+  var tree = function(x1I, y1I, thetaI, branchWidth0I, totalBranchLengthI,dThetaGrowMaxI){
     var that = {};
 
     var nBranchDivisions = 50,
     percentBranchless = 0.3,
     branchSizeFraction = 0.5,
-    dThetaGrowMax = Math.PI/36,
+    // dThetaGrowMax = Math.PI/36,
     dThetaSplitMax = Math.PI/6,
-    oddsOfBranching = 0.25,  
+    oddsOfBranching = 0.3,  
     lengthSoFar = 0,
     nextSectionLength;
 
@@ -92,6 +66,7 @@ function constrainer(min, max) {
     that.branchWidth0 = branchWidth0I;
     that.branchWidth = that.branchWidth0;
     that.totalBranchLength = totalBranchLengthI;
+    that.dThetaGrowMax = dThetaGrowMaxI,
 
 
     that.draw = function(){ 
@@ -103,7 +78,7 @@ function constrainer(min, max) {
         that.branchWidth = that.branchWidth0*(1-lengthSoFar/that.totalBranchLength);
         nextSectionLength = that.totalBranchLength/nBranchDivisions;
         lengthSoFar += nextSectionLength;
-        that.theta += randomSign(dThetaGrowMax);
+        that.theta += randomSign(that.dThetaGrowMax);
         that.x2 = that.x1 + nextSectionLength*Math.cos(that.theta);
         that.y2 = that.y1 + nextSectionLength*Math.sin(that.theta);
         context.save();
@@ -123,10 +98,11 @@ function constrainer(min, max) {
     var theta3 = that.theta+randomSign(dThetaSplitMax);
     var branchWidth3 = that.branchWidth;
     var totalBranchLength3 = that.totalBranchLength*branchSizeFraction;
+    var dThetaGrowMax3 = Math.PI/36;
 
     if(lengthSoFar/that.totalBranchLength > percentBranchless){
      if(Math.random() < oddsOfBranching){  
-      var t3 = tree(x3, y3, theta3, branchWidth3, totalBranchLength3 ); 
+      var t3 = tree(x3, y3, theta3, branchWidth3, totalBranchLength3, dThetaGrowMax3); 
       t3.draw();   
     }
   }
@@ -179,6 +155,8 @@ function constrainer(min, max) {
   context.save();
   context.strokeStyle="#FFFFFF";
   context.lineWidth = snowThickness;
+  context.shadowBlur=20;
+  context.shadowColor="#FFFFFF";
   context.beginPath();
   context.moveTo(xs1, ys1);
   context.lineTo(xs2,ys2);

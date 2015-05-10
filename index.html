@@ -5,16 +5,27 @@
   <title>Forest</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Javascript recursive tree, HTML5 Canvas tree drawing">
-  <link href="http://d2v52k3cl9vedd.cloudfront.net/basscss/6.0.0/basscss.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 <body>
   <!-- add-youtube video bg -->
   <div id="content" class="content container">
-    <canvas id ="canvas" class="canvas" >
-
+    <nav>
+    <ul class="control">
+      <li><button value="stop-snow" class="button" id="snow-toggle">Stop Snow</button></li>
+    </ul>
+    </nav>
+    <canvas id ="canvas" class="canvas loading" width="100%" height="100%">
     </canvas>
+
+    <canvas id = "canvas2" class="snow">
+    </canvas>
+    <div class="snow-ground"></div>
+
   </div>
+
+  <script src="src/snow.js"></script>
   <script src="src/script.js"></script>
+  
 </body>
 </html>
