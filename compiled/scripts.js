@@ -139,7 +139,7 @@ function constrainer(min, max) {
 (function(){
 
   var button = document.getElementById("snow-toggle");
-  var body = document.body;
+  var body = document.getElementById('content');
   var s = snow();
   s.init();
 
