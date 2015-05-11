@@ -36,8 +36,6 @@
       //   ts[i] = tree((i+1)*width/(nTrees+1), height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       //   ts[i].draw();
       // }
-      var cWidth = width < 500? width/2: 500;
-      
       var t = tree(width/2, height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       t.draw();
       render();
@@ -50,11 +48,6 @@
     return self;
 
   }
-
-
-
-
-
 
   var tree = function(x1I, y1I, thetaI, branchWidth0I, totalBranchLengthI,dThetaGrowMaxI){
     var that = {};
@@ -80,7 +73,7 @@
 
 
     that.draw = function(){ 
-      if (that.branchWidth < 0.5){
+      if (that.branchWidth < 0.7){
         lengthSoFar = that.totalBranchLength;
       }
 
@@ -178,8 +171,6 @@
 
  return that;
 }
-
-
 window.forest = forest;
 })();
 

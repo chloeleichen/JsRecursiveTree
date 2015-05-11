@@ -11,6 +11,7 @@ body{
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
+	min-height: 100%;
 	/* IE10 Consumer Preview */ 
 	background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
 
@@ -59,18 +60,6 @@ canvas {
 	width: 100%;
 }
 
-.snow-ground{
-
-	position: absolute;
-	bottom: -10px;
-	width: 100%;
-	height: 100px;
-	background-image: url(floor.svg);
-	background-repeat: no-repeat;
-	background-size: 120%;
-	background-position: center bottom;
-}
-
 .loading{
 	opacity: 0;
 }
@@ -97,7 +86,7 @@ button{
 	background-color:#7f8c8d;
 	-moz-border-radius:6px;
 	-webkit-border-radius:6px;
-	border-radius:1px;
+	border-radius:3px;
 	border:1px solid #95a5a6;
 	display: block;
 	cursor:pointer;
