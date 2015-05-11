@@ -201,8 +201,6 @@ function constrainer(min, max) {
       //   ts[i] = tree((i+1)*width/(nTrees+1), height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       //   ts[i].draw();
       // }
-      var cWidth = width < 500? width/2: 500;
-      
       var t = tree(width/2, height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       t.draw();
       render();
@@ -240,7 +238,7 @@ function constrainer(min, max) {
 
 
     that.draw = function(){ 
-      if (that.branchWidth < 0.5){
+      if (that.branchWidth < 0.7){
         lengthSoFar = that.totalBranchLength;
       }
 
