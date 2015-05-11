@@ -4,10 +4,16 @@
 }*/
 
 body{
-	/*background: #ecf0f1;*/
-	/* Mozilla Firefox */ 
 	margin: 0;
 	padding: 0;
+	
+
+}
+
+#content{
+	/*background: #ecf0f1;*/
+	/* Mozilla Firefox */ 
+	
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
@@ -32,12 +38,12 @@ body{
 	transition: background-image .25s ease-in-out;
     -moz-transition: background-image .25s ease-in-out;
     -webkit-transition: background-image .25s ease-in-out;
-
-}
-
-#content{
-	height: 100%;
-	width: 100%;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 canvas {
 	display: block;
@@ -105,7 +111,7 @@ button:active {
 }
 
 
-body.sunny{
+#content.sunny{
 
 	background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
 
