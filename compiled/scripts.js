@@ -323,8 +323,6 @@ function constrainer(min, max) {
   context.save();
   context.strokeStyle="#FFFFFF";
   context.lineWidth = snowThickness;
-  context.shadowBlur=20;
-  context.shadowColor="#FFFFFF";
   context.beginPath();
   context.moveTo(xs1, ys1);
   context.lineTo(xs2,ys2);
