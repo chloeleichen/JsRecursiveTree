@@ -1,139 +1,140 @@
-/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);*/
-/*body {
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-}*/
+	}
 
-body{
-	margin: 0;
-	padding: 0;
-	
-
-}
-
-#content{
-	/*background: #ecf0f1;*/
-	/* Mozilla Firefox */ 
-	
-	background-repeat: no-repeat;
-	background-size: cover;
-	overflow: hidden;
-	min-height: 100%;
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
-
-	/* Mozilla Firefox */ 
-	background-image: -moz-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
-
-	/* Opera */ 
-	background-image: -o-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
-
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(radial, center top, 0, center top, 509, color-stop(0, #FFFFFF), color-stop(1, #BDC3C7));
-
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
-
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: radial-gradient(ellipse farthest-corner at center top, #FFFFFF 0%, #BDC3C7 100%);
-	transition: background-image .25s ease-in-out;
-    -moz-transition: background-image .25s ease-in-out;
-    -webkit-transition: background-image .25s ease-in-out;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-canvas {
-	display: block;
-	margin: 0 auto;
-	opacity: 1;
-	transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
-     -webkit-filter: blur(0.5px);
-  -moz-filter: blur(0.5px);
-  -o-filter: blur(0.5px);
-  -ms-filter: blur(0.5px);
-  filter: blur(0.5px);
-	
-}
-
-.text-content{
-	position: absolute;
-	top: 2rem;
-	width: 100%;
-}
-
-.loading{
-	opacity: 0;
-}
-
-#canvas2{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	height: 100%;
-	width: 100%;
-}
-
-.control{
-	position: absolute;
-	top: 0;
-	z-index: 999;
-	list-style: none;
-  	padding-left: 0;
-}
-
-button{
-	background-color:#7f8c8d;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:3px;
-	border:1px solid #95a5a6;
-	display: block;
-	cursor:pointer;
-	color:#ffffff;
-	padding: 10px 5px;
-	text-decoration:none;
-	margin: 2em;
-}
-
-button:hover, button:focus {
-	background-color:#95a5a6;
-	outline: none;
-}
-button:active {
-	top:1px;
-}
+	body{
+		margin: 0;
+		padding: 0;
 
 
-#content.sunny{
+	}
 
-	background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+	#content{
+		/*background: #ecf0f1;*/
+		/* Mozilla Firefox */ 
 
-	/* Mozilla Firefox */ 
-	background-image: -moz-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+		background-repeat: no-repeat;
+		background-size: cover;
+		overflow: hidden;
+		min-height: 100%;
+		/* IE10 Consumer Preview */ 
+		background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
 
-	/* Opera */ 
-	background-image: -o-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+		/* Mozilla Firefox */ 
+		background-image: -moz-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
 
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(radial, center top, 0, center top, 509, color-stop(0, #FFFFFF), color-stop(1, #2980b9));
+		/* Opera */ 
+		background-image: -o-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
 
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+		/* Webkit (Safari/Chrome 10) */ 
+		background-image: -webkit-gradient(radial, center top, 0, center top, 509, color-stop(0, #FFFFFF), color-stop(1, #BDC3C7));
 
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: radial-gradient(ellipse farthest-corner at center top, #FFFFFF 0%, #2980b9 100%);
+		/* Webkit (Chrome 11+) */ 
+		background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #BDC3C7 100%);
 
-}
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: radial-gradient(ellipse farthest-corner at center top, #FFFFFF 0%, #BDC3C7 100%);
+		transition: background-image .25s ease-in-out;
+		-moz-transition: background-image .25s ease-in-out;
+		-webkit-transition: background-image .25s ease-in-out;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	canvas {
+		display: block;
+		margin: 0 auto;
+		opacity: 1;
+		transition: opacity .25s ease-in-out;
+		-moz-transition: opacity .25s ease-in-out;
+		-webkit-transition: opacity .25s ease-in-out;
+		-webkit-filter: blur(0.5px);
+		-moz-filter: blur(0.5px);
+		-o-filter: blur(0.5px);
+		-ms-filter: blur(0.5px);
+		filter: blur(0.5px);
 
-button[value="stop-snow"]{
-	background: #2980b9;
-}
+	}
+
+	.text-content{
+		position: absolute;
+		top: 2rem;
+		width: 100%;
+	}
+
+	.loading{
+		opacity: 0;
+	}
+
+	#canvas2{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+	}
+
+	.control{
+		position: absolute;
+		top: 0;
+		z-index: 999;
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.button{
+		background-color:#7f8c8d;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:3px;
+		border:1px solid #95a5a6;
+		display: block;
+		cursor:pointer;
+		color:#ffffff;
+		padding: 10px 5px;
+		text-decoration:none;
+		margin: 20px;
+		font-size: 14px;
+	}
+
+	.button:hover, .button:focus {
+		background-color:#95a5a6;
+		outline: none;
+	}
+	.button:active {
+		top:1px;
+	}
+
+
+	#content.sunny{
+
+		background-image: -ms-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+
+		/* Mozilla Firefox */ 
+		background-image: -moz-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+
+		/* Opera */ 
+		background-image: -o-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+
+		/* Webkit (Safari/Chrome 10) */ 
+		background-image: -webkit-gradient(radial, center top, 0, center top, 509, color-stop(0, #FFFFFF), color-stop(1, #2980b9));
+
+		/* Webkit (Chrome 11+) */ 
+		background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, #FFFFFF 0%, #2980b9 100%);
+
+		/* W3C Markup, IE10 Release Preview */ 
+		background-image: radial-gradient(ellipse farthest-corner at center top, #FFFFFF 0%, #2980b9 100%);
+
+	}
+
+	button[value="stop-snow"]{
+		background: #2980b9;
+	}
 
 
