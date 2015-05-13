@@ -173,6 +173,7 @@ function constrainer(min, max) {
   var addSnow = true;
   var maxSnowTheta = Math.PI*1/3;
   var timer;
+  var nBranchDivisions;
   //var nTrees = 1;
 
 
@@ -195,8 +196,9 @@ function constrainer(min, max) {
       canvas.height = window.innerHeight;   
       width = canvas.width;
       height = canvas.height;
-      var ts = [];
+      //var ts = [];
       var cWidth = width < 500? width/2: 500;
+      var nBranchDivisions = cWidth/10;
       // for (var i = 0; i < nTrees; i ++){
       //   ts[i] = tree((i+1)*width/(nTrees+1), height, -(Math.PI/2), 10, cWidth, randomSign(0.03));
       //   ts[i].draw();
@@ -217,14 +219,13 @@ function constrainer(min, max) {
   var tree = function(x1I, y1I, thetaI, branchWidth0I, totalBranchLengthI,dThetaGrowMaxI){
     var that = {};
 
-    var nBranchDivisions = 50,
-    percentBranchless = 0.3,
-    branchSizeFraction = 0.5,
-    // dThetaGrowMax = Math.PI/36,
-    dThetaSplitMax = Math.PI/6,
-    oddsOfBranching = 0.3,  
-    lengthSoFar = 0,
-    nextSectionLength;
+    var percentBranchless = 0.3,
+        branchSizeFraction = 0.5,
+        // dThetaGrowMax = Math.PI/36,
+        dThetaSplitMax = Math.PI/6,
+        oddsOfBranching = 0.3,  
+        lengthSoFar = 0,
+        nextSectionLength;
 
     that.x1 = x1I;
     that.y1 = y1I;
